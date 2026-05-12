@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { 
   Camera, ShieldCheck, Smartphone, Lock, 
   ChevronLeft, Eye, Activity, Menu, 
@@ -8,10 +8,21 @@ import {
 } from 'lucide-react';
 
 export default function RoimRachokFinalV3() {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-  };
+const fadeInUp: Variants = {
+  hidden: { 
+    opacity: 0, 
+    y: 30 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.8, 
+      ease: "easeOut" // כעת TS יזהה את זה כערך תקין
+    }
+  }
+} as const; // ה-as const חיוני למניעת שגיאת ה-string הכללי
+  
 
   return (
     <div className="min-h-screen bg-[#020305] text-white font-sans selection:bg-orange-500/30 overflow-x-hidden" dir="rtl">
